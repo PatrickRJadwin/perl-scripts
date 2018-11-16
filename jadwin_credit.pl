@@ -38,8 +38,7 @@ foreach my $i (@chars) {
        $digcounter++;
     }
     # catch illegal characters
-    elsif ($i =~ /([[:alpha:]])/ || $i !~ /[\s]/ && $i !~ /(\d+)/ || $i !~ /[\-]/ && $i !~ /(\d+)/) {
-        print "illegal \n";
+    if ($i !~ /(\d+)/ && $i !~ /[\s]/ && $i !~ /[\-]/) {
         $bool = 1;    
     }
     # Create new line
@@ -58,8 +57,8 @@ if ($bool ne 0) {
     my $showError = "";
     # Loop through chars
     foreach my $i (@chars) {
-        # if $i is not a num, space, or -, highlight the character red
-        if ($i =~ /([[:alpha:]])/ || $i !~ /[\s]/ && $i !~ /(\d+)/ || $i !~ /[\-]/ && $i !~ /(\d+)/) {
+        # if $i is not a num, space, or -, highlight the characters
+        if ($i !~ /(\d+)/ && $i !~ /[\s]/ && $i !~ /[\-]/) {
             $showError = $showError.colored($chars[$inc], 'red');
         }
         # else concat char to str
