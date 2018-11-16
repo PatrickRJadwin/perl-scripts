@@ -75,7 +75,7 @@ if ($bool ne 0) {
 
 # check if length of number = 16
 if ($digcounter ne 16) {
-    print 'Not a valid credit card number';
+    print 'INVALID: Must enter 16 digits';
     exit 0;
 }
 
