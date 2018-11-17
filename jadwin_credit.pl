@@ -69,13 +69,13 @@ if ($bool ne 0) {
         $inc++;
     }
     # print highlighted illegal characters and exit
-    print "Contains illegal characters: ".$showError;
+    print "Contains illegal characters: ".$showError."\n";
     exit 0;
 }
 
 # check if length of number = 16
 if ($digcounter ne 16) {
-    print 'INVALID: Must enter 16 digits';
+    print "INVALID: Must enter 16 digits\n\n";
     exit 0;
 }
 
