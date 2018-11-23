@@ -37,6 +37,7 @@ for (my $i = 0; $i < scalar @ARGV; $i++) {
     
 }
 
+# sort dictionary and print
 foreach my $key (sort { $dictionary{$b} <=> $dictionary{$a} } keys %dictionary && sort(keys %dictionary)) {
     print $key . " = " . $dictionary{$key} . "\n";
 }
