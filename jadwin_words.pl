@@ -19,6 +19,7 @@ for (;;) {
 
 # Compare words to arguments
 my @argcount;
+my %dictionary;
 for (my $i = 0; $i < scalar @ARGV; $i++) {
     my $count = 0;  # word counter
     for (my $x = 0; $x < scalar @wordarr; $x++) {
@@ -28,9 +29,14 @@ for (my $i = 0; $i < scalar @ARGV; $i++) {
     }
     push @argcount, $count;  # store count
     if ($argcount[$i]) {
-        print $ARGV[$i] . " = " . $argcount[$i] , "\n"; # print value
+        $dictionary{$ARGV[$i]} = $argcount[$i];
     }
     else {
-        print $ARGV[$i] . " = " . "0\n"; # print if word is not found and value is null
+        $dictionary{$ARGV[$i]} = 0;
     }
+    
+}
+
+foreach my $key (sort { $dictionary{$b} <=> $dictionary{$a} } keys %dictionary && sort(keys %dictionary)) {
+    print $key . " = " . $dictionary{$key} . "\n";
 }
